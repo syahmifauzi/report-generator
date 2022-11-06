@@ -1,8 +1,12 @@
+import Image from 'next/image'
 import { FC } from 'react'
+import { toast } from 'react-hot-toast'
 import { javascript } from '@codemirror/lang-javascript'
 import { StreamLanguage } from '@codemirror/language'
 import { yaml } from '@codemirror/legacy-modes/mode/yaml'
 import ReactCodeMirror from '@uiw/react-codemirror'
+
+import Copy from '~/copy.svg'
 
 interface Props {
   label: string
@@ -17,8 +21,17 @@ const getExtension = {
 }
 
 const CodeBlock: FC<Props> = ({ label, value, language, handleChange }) => {
+  const handleCopyToClipboard = () => {
+    navigator.clipboard.writeText(value)
+    toast.success('Successfully copied!', {
+      id: 'copy',
+      duration: 1500,
+      style: { minWidth: '0' }
+    })
+  }
+
   return (
-    <div className="py-2 text-xs sm:text-sm">
+    <div className="py-2 text-xs sm:text-sm relative">
       <div className="mb-2 text-center">{label}</div>
       <ReactCodeMirror
         className="border rounded-sm overflow-hidden"
@@ -26,6 +39,12 @@ const CodeBlock: FC<Props> = ({ label, value, language, handleChange }) => {
         onChange={handleChange}
         height="30vh"
         extensions={[getExtension[language]]}
+      />
+      <Image
+        src={Copy}
+        alt="copy to clipboard"
+        onClick={handleCopyToClipboard}
+        className="absolute w-6 h-6 cursor-pointer right-3 bottom-1 z-10 bg-white p-0.5 rounded"
       />
     </div>
   )
