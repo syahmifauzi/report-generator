@@ -18,10 +18,10 @@ const getExtension = {
 
 const CodeBlock: FC<Props> = ({ label, value, language, handleChange }) => {
   return (
-    <div className="p-2 rounded-sm">
-      <div className="text-md mb-2 text-center">{label}</div>
+    <div className="py-2 text-xs sm:text-sm">
+      <div className="mb-2 text-center">{label}</div>
       <ReactCodeMirror
-        className="text-sm border rounded-md overflow-hidden w-full"
+        className="border rounded-sm overflow-hidden"
         value={value}
         onChange={handleChange}
         height="30vh"

@@ -17,11 +17,13 @@ const HomePage = () => {
   }
 
   return (
-    <div className="p-4 max-w-5xl mx-auto prose prose-slate">
+    <div className="px-2 py-4 max-w-5xl mx-auto prose prose-sm">
       <Head>
-        <title>Report Generator</title>
+        <title>Easy Report</title>
       </Head>
-      <h1 className="text-3xl font-medium text-center">Report Generator</h1>
+      <h1 className="text-2xl sm:text-3xl font-medium text-center mb-2 sm:mb-4">
+        Easy Report
+      </h1>
       <CodeBlock
         label="Template (Handlebars)"
         value={template}
