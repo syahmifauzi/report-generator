@@ -21,7 +21,7 @@ const HomePage = () => {
       <Head>
         <title>Easy Report</title>
       </Head>
-      <h1 className="text-2xl sm:text-3xl font-medium text-center mb-2 sm:mb-4">
+      <h1 className="text-2xl sm:text-3xl font-medium text-center mb-2 sm:mb-4 dark:text-white">
         Easy Report
       </h1>
       <CodeBlock

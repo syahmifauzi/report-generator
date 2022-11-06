@@ -4,6 +4,7 @@ import { toast } from 'react-hot-toast'
 import { javascript } from '@codemirror/lang-javascript'
 import { StreamLanguage } from '@codemirror/language'
 import { yaml } from '@codemirror/legacy-modes/mode/yaml'
+import { dracula } from '@uiw/codemirror-theme-dracula'
 import ReactCodeMirror from '@uiw/react-codemirror'
 
 import Copy from '~/copy.svg'
@@ -32,12 +33,13 @@ const CodeBlock: FC<Props> = ({ label, value, language, handleChange }) => {
 
   return (
     <div className="py-2 text-xs sm:text-sm relative">
-      <div className="mb-2 text-center">{label}</div>
+      <div className="mb-2 text-center dark:text-white">{label}</div>
       <ReactCodeMirror
         className="border rounded-sm overflow-hidden"
         value={value}
         onChange={handleChange}
         height="30vh"
+        theme={dracula}
         extensions={[getExtension[language]]}
       />
       <Image
