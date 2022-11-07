@@ -37,7 +37,7 @@ const HomePage = () => {
         handleChange={(payload) => handleChange('data', payload)}
       />
       <CodeBlock
-        label="Output"
+        label="Output (Auto Generated)"
         value={output}
         language="JS"
         handleChange={(payload) => handleChange('output', payload)}
