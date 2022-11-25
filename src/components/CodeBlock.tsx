@@ -35,10 +35,9 @@ const CodeBlock: FC<Props> = ({ label, value, language, handleChange }) => {
     <div className="py-2 text-xs sm:text-sm relative">
       <div className="mb-2 text-center dark:text-white">{label}</div>
       <ReactCodeMirror
-        className="border rounded-sm overflow-hidden"
+        className="border rounded-sm overflow-hidden min-h-[200px] max-h-[30vh]"
         value={value}
         onChange={handleChange}
-        height="30vh"
         theme={dracula}
         extensions={[getExtension[language]]}
       />
